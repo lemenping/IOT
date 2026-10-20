@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "author": "lemenn pingg",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -57.6, "left": 158.44, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -46.5, "left": -90.5, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 34.8, "left": 80.6, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 50.4,
+      "left": -161.4,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ultrasonic1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "esp:18", "blue", [ "v115.2", "h258.4" ] ],
+    [ "ultrasonic1:TRIG", "esp:5", "gold", [ "v124.8", "h268.4" ] ],
+    [ "ultrasonic1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "led1:A", "esp:14", "cyan", [ "v0", "h67.2" ] ],
+    [ "led1:C", "esp:GND.1", "magenta", [ "v38.4", "h58" ] ],
+    [ "bz1:2", "esp:14", "white", [ "v48", "h114.8", "v-105.6" ] ],
+    [ "bz1:1", "esp:GND.1", "#8f4814", [ "v57.6", "h297.45" ] ]
+  ],
+  "dependencies": {}
+}
